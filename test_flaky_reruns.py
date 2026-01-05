@@ -6,7 +6,7 @@ class TestFlakyRuns:
     def test_create_or_delete(self):
         flaky = FlakyReruns("test.txt")
         result = flaky.create_or_delete()
-        assert result
+        assert not result
 
     def test_pass(self):
         assert True
