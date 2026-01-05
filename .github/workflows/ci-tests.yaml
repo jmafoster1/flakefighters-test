@@ -38,3 +38,8 @@ jobs:
       run: |
         pytest # Test should pass
         pytest --suppress-flaky-failures-exit-code # Test should fail
+    - name: Upload database artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: flakefighters.db
+        path: flakefighters.db
