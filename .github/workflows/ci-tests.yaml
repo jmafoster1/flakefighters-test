@@ -23,8 +23,6 @@ jobs:
       run: |
           python --version
           python -m pip install --upgrade pip
-          pip install -e .
-          pip install -e .[test]
           pip install pytest pytest-cov
           pip install pytest pytest-flakefighters
     - name: Test with pytest
