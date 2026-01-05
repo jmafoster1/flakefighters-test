@@ -1,4 +1,4 @@
-name: Continuous Integration Tests Draft PR (pytest)
+name: Continuous Integration Tests PR
 on:
   pull_request:
     branches:
@@ -13,10 +13,10 @@ jobs:
   build:
     name: Ex1 (${{ matrix.os }})
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # 0 indicates all history for all branches and tags
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
@@ -25,11 +25,10 @@ jobs:
       run: |
           python --version
           python -m pip install --upgrade pip
-          pip install -e .
-          pip install -e .[test]
-          pip install pytest pytest-cov
-          pip install pytest pytest-flakefighters
+          pip install pytest pytest-cov pytest-flakefighters
+    # - name: Setup tmate session
+    #   uses: mxschmitt/action-tmate@v3
     - name: Test with pytest
       run: |
         pytest # Test should pass
-        pytest # Test should fail
+        pytest --suppress-flaky-failures-exit-code # Test should fail
