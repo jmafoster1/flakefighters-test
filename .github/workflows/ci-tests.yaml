@@ -17,6 +17,12 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0  # 0 indicates all history for all branches and tags
+    - uses: actions/cache@v4
+      with:
+        path: flakefighters.db
+        key: flakefighters-${{ runner.os }}-${{ hashFiles('flakefighters.db') }}
+        restore-keys: |
+          flakefighters-${{ runner.os }}-
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
