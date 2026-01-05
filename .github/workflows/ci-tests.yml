@@ -1,0 +1,30 @@
+name: Continuous Integration Tests Draft PR (pytest)
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Ex1 (${{ matrix.os }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+       python-version: 3.12
+    - name: Install dependencies
+      run: |
+          python --version
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install -e .[test]
+          pip install pytest pytest-cov
+          pip install pytest pytest-flakefighters
+    - name: Test with pytest
+      run: |
+        pytest # Test should pass
+        pytest # Test should fail
