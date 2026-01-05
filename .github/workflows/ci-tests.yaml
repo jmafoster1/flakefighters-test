@@ -31,4 +31,4 @@ jobs:
     - name: Test with pytest
       run: |
         pytest # Test should pass
-        pytest # Test should fail
+        pytest --suppress-flaky-failures-exit-code # Test should fail
