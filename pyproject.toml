@@ -11,18 +11,18 @@ dependencies = [
 dynamic = ["version"]
 
 
-[project.entry-points."pytest_flakefighters"]
-CustomFlakefighter = "custom_flakefighter:CustomFlakefighter"
-
-[tool.pytest.ini_options.pytest_flakefighters.flakefighters.custom_flakefighter.CustomFlakefighter]
-run_live=true
-custom_arg=0.1
-
-[tool.pytest.ini_options.pytest_flakefighters.flakefighters.deflaker.DeFlaker]
-run_live=false
-
-[tool.pytest.ini_options.pytest_flakefighters.flakefighters.traceback_matching.TracebackMatching]
-run_live=false
-
-[tool.pytest.ini_options.pytest_flakefighters.flakefighters.traceback_matching.CosineSimilarity]
-run_live=false
+# [project.entry-points."pytest_flakefighters"]
+# CustomFlakefighter = "custom_flakefighter:CustomFlakefighter"
+#
+# [tool.pytest.ini_options.pytest_flakefighters.flakefighters.custom_flakefighter.CustomFlakefighter]
+# run_live=true
+# custom_arg=0.1
+#
+# [tool.pytest.ini_options.pytest_flakefighters.flakefighters.deflaker.DeFlaker]
+# run_live=false
+#
+# [tool.pytest.ini_options.pytest_flakefighters.flakefighters.traceback_matching.TracebackMatching]
+# run_live=false
+#
+# [tool.pytest.ini_options.pytest_flakefighters.flakefighters.traceback_matching.CosineSimilarity]
+# run_live=false
