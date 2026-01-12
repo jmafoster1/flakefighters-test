@@ -36,8 +36,8 @@ jobs:
     #   uses: mxschmitt/action-tmate@v3
     - name: Test with pytest
       run: |
-        pytest # Test should pass
-        pytest --suppress-flaky-failures-exit-code # Test should fail
+        pytest --database-url ${{ secrets.SUPABASE_URL }} # Test should pass
+        pytest --database-url ${{ secrets.SUPABASE_URL }} --suppress-flaky-failures-exit-code # Test should fail
     - name: Upload database artifact
       uses: actions/upload-artifact@v4
       with:
